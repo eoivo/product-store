@@ -1,6 +1,6 @@
 # Product Store
 
-**Product Store** é uma aplicação full stack para cadastro e gerenciamento de produtos, permitindo **criar**, **editar** e **excluir** itens.
+Aplicação full stack para cadastro e gerenciamento de produtos, permitindo **criar**, **editar** e **excluir** itens.
 
 ## Tecnologias
 
@@ -12,7 +12,7 @@
 1. Clone o repositório e entre na pasta do projeto:
 
    ```bash
-   git clone https://github.com/seu-usuario/product-store.git
+   git clone https://github.com/eoivo/product-store
    cd product-store
    ```
 
@@ -39,7 +39,7 @@
 5. Para produção:
    ```bash
    npm run build
-   npm start
+   npm run start
    ```
 
 ## Estrutura do Projeto

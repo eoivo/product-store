@@ -2,6 +2,8 @@
 
 Aplicação full stack para cadastro e gerenciamento de produtos, permitindo **criar**, **editar** e **excluir** itens.
 
+**Deploy**: [https://ivofernandes.netlify.app/](https://product-store-7c8m.onrender.com/)
+
 ## Tecnologias
 
 - **Backend**: Node.js, Express, MongoDB
@@ -20,7 +22,6 @@ Aplicação full stack para cadastro e gerenciamento de produtos, permitindo **c
 
    ```bash
    npm install
-   npm install --prefix frontend
    ```
 
 3. Configure as variáveis de ambiente criando um arquivo `.env` com:
@@ -46,3 +47,11 @@ Aplicação full stack para cadastro e gerenciamento de produtos, permitindo **c
 
 - `backend/` - Código do servidor e rotas de API
 - `frontend/` - Interface do usuário e gerenciamento de estado
+
+## Acesso ao Deploy
+
+O deploy da aplicação está disponível em:
+
+[https://ivofernandes.netlify.app/](https://ivofernandes.netlify.app/)
+
+---

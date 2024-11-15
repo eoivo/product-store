@@ -46,7 +46,7 @@ const ProductCard = ({ product }) => {
     if (!success) {
       toast({
         title: "Error",
-        description: message,
+        description: "Erro ao deletar produto",
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -54,7 +54,7 @@ const ProductCard = ({ product }) => {
     } else {
       toast({
         title: "Success",
-        description: message,
+        description: "Produto deletado com sucesso!",
         status: "success",
         duration: 3000,
         isClosable: true,
@@ -68,7 +68,7 @@ const ProductCard = ({ product }) => {
     if (!success) {
       toast({
         title: "Error",
-        description: message,
+        description: "Erro ao atualizar produto",
         status: "error",
         duration: 3000,
         isClosable: true,

@@ -6,7 +6,6 @@ import {
   HStack,
   IconButton,
   Image,
-  Input,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -19,6 +18,8 @@ import {
   useDisclosure,
   useToast,
   VStack,
+  Input,
+  Tooltip,
 } from "@chakra-ui/react";
 import { useProductStore } from "../store/product";
 import { useState } from "react";
@@ -38,7 +39,6 @@ const ProductCard = ({ product }) => {
     setDeleteModalOpen(true);
   };
 
-  // Função para efetuar a exclusão do produto
   const handleDeleteProduct = async () => {
     const { success, message } = await deleteProduct(product._id);
     setDeleteModalOpen(false);
@@ -75,13 +75,20 @@ const ProductCard = ({ product }) => {
       });
     } else {
       toast({
-        title: "Success",
-        description: "Product updated successfully",
+        title: "Successo",
+        description: "Produto atualizado com sucesso!",
         status: "success",
         duration: 3000,
         isClosable: true,
       });
     }
+  };
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(price);
   };
 
   return (
@@ -107,28 +114,36 @@ const ProductCard = ({ product }) => {
         </Heading>
 
         <Text fontWeight="bold" fontSize="xl" color={textColor} mb={4}>
-          ${product.price}
+          {formatPrice(product.price)}
         </Text>
 
         <HStack spacing={2}>
-          <IconButton icon={<EditIcon />} onClick={onOpen} colorScheme="blue" />
-          <IconButton
-            icon={<DeleteIcon />}
-            onClick={confirmDeleteProduct}
-            colorScheme="red"
-          />
+          <Tooltip label="Editar produto" fontSize="md">
+            <IconButton
+              icon={<EditIcon />}
+              onClick={onOpen}
+              colorScheme="blue"
+            />
+          </Tooltip>
+          <Tooltip label="Deletar produto" fontSize="md">
+            <IconButton
+              icon={<DeleteIcon />}
+              onClick={confirmDeleteProduct}
+              colorScheme="red"
+            />
+          </Tooltip>
         </HStack>
       </Box>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Update Product</ModalHeader>
+          <ModalHeader>Editar Produto</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4}>
               <Input
-                placeholder="Product Name"
+                placeholder="Nome do Produto"
                 name="name"
                 value={updatedProduct.name}
                 onChange={(e) =>
@@ -136,7 +151,7 @@ const ProductCard = ({ product }) => {
                 }
               />
               <Input
-                placeholder="Price"
+                placeholder="Preço"
                 name="price"
                 type="number"
                 value={updatedProduct.price}
@@ -148,7 +163,7 @@ const ProductCard = ({ product }) => {
                 }
               />
               <Input
-                placeholder="Image URL"
+                placeholder="Imagem do Produto"
                 name="image"
                 value={updatedProduct.image}
                 onChange={(e) =>
@@ -166,10 +181,10 @@ const ProductCard = ({ product }) => {
               mr={3}
               onClick={() => handleUpdateProduct(product._id, updatedProduct)}
             >
-              Update
+              Salvar
             </Button>
             <Button variant="ghost" onClick={onClose}>
-              Cancel
+              Cancelar
             </Button>
           </ModalFooter>
         </ModalContent>
@@ -181,7 +196,7 @@ const ProductCard = ({ product }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Confirm Delete</ModalHeader>
+          <ModalHeader>Deletar Produto</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Text>Tem certeza que deseja deletar o produto?</Text>

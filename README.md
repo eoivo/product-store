@@ -2,6 +2,14 @@
 
 Aplicação full stack para cadastro e gerenciamento de produtos, permitindo **criar**, **editar** e **excluir** itens.
 
+## Deploy
+
+A aplicação está disponível para visualização online no seguinte link:
+
+- **Demo**: [Product Store](https://product-store-7c8m.onrender.com/)
+
+<img src="./frontend/public/screenshot-for-readme.png" alt="Imagem demo" />
+
 ## Tecnologias
 
 - **Backend**: Node.js, Express, MongoDB
@@ -20,7 +28,6 @@ Aplicação full stack para cadastro e gerenciamento de produtos, permitindo **c
 
    ```bash
    npm install
-   npm install --prefix frontend
    ```
 
 3. Configure as variáveis de ambiente criando um arquivo `.env` com:
